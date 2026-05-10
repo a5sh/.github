@@ -1,142 +1,168 @@
-<svg width="1000" height="240" viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What I Do">
-  <defs>
-    <linearGradient id="whatFlow1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.3"/>
-      <stop offset="50%" stop-color="#7c6af7" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0"/>
-    </linearGradient>
+<svg width="1000" height="240" viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <!-- Sophisticated gradients -->
+  <linearGradient id="whatFlow1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.3"/>
+    <stop offset="50%" stop-color="#7c6af7" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0"/>
+  </linearGradient>
+  
+  <radialGradient id="whatPulse1" cx="30%" cy="30%" r="60%">
+    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
+  </radialGradient>
+  
+  <radialGradient id="whatPulse2" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
+  </radialGradient>
+  
+  <radialGradient id="whatPulse3" cx="70%" cy="70%" r="55%">
+    <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0"/>
+  </radialGradient>
+  
+  <filter id="whatSoftGlow">
+    <feGaussianBlur stdDeviation="3"/>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  
+  <filter id="whatParticleGlow">
+    <feGaussianBlur stdDeviation="2"/>
+  </filter>
+  
+  <clipPath id="whatClip">
+    <rect width="1000" height="240" rx="16"/>
+  </clipPath>
+  
+  <style>
+    @keyframes whatFloat1 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+    @keyframes whatFloat2 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+    @keyframes whatFloat3 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-18px); } }
+    @keyframes whatPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+    @keyframes whatGlowExpand { 0%, 100% { r: 80; opacity: 0.2; } 50% { r: 120; opacity: 0.4; } }
+    @keyframes whatGlowExpand2 { 0%, 100% { r: 100; opacity: 0.15; } 50% { r: 150; opacity: 0.35; } }
+    @keyframes whatGlowExpand3 { 0%, 100% { r: 90; opacity: 0.2; } 50% { r: 130; opacity: 0.4; } }
+    @keyframes whatParticleFlow { 0% { transform: translateX(-100px) translateY(-50px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(100px) translateY(50px); opacity: 0; } }
+  </style>
+</defs>
 
-    <radialGradient id="whatPulse1" cx="30%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
-    </radialGradient>
+<!-- Background -->
+<rect width="1000" height="240" rx="16" fill="#0c0c0f"/>
+<rect width="998" height="238" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
 
-    <radialGradient id="whatPulse2" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
-    </radialGradient>
-
-    <radialGradient id="whatPulse3" cx="70%" cy="70%" r="55%">
-      <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0"/>
-    </radialGradient>
-
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="3" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <filter id="particleGlow">
-      <feGaussianBlur stdDeviation="2"/>
-    </filter>
-
-    <clipPath id="clip">
-      <rect width="1000" height="240" rx="16"/>
-    </clipPath>
-  </defs>
-
-  <rect width="1000" height="240" rx="16" fill="#0c0c0f"/>
-  <rect x="1" y="1" width="998" height="238" rx="15" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
-
-  <g clip-path="url(#clip)">
-    <ellipse cx="150" cy="60" rx="200" ry="150" fill="url(#whatFlow1)" filter="url(#softGlow)">
-      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="7s" repeatCount="indefinite"/>
-    </ellipse>
-
-    <ellipse cx="850" cy="180" rx="180" ry="140" fill="url(#whatFlow1)" filter="url(#softGlow)">
-      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="8s" repeatCount="indefinite"/>
-    </ellipse>
-
-    <circle cx="200" cy="100" r="80" fill="url(#whatPulse1)" filter="url(#softGlow)">
-      <animate attributeName="r" values="80;120;80" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="6s" repeatCount="indefinite"/>
+<g clip-path="url(#whatClip)">
+  <!-- Background gradient flows -->
+  <ellipse cx="150" cy="60" rx="200" ry="150" fill="url(#whatFlow1)" filter="url(#whatSoftGlow)">
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="7s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <ellipse cx="850" cy="180" rx="180" ry="140" fill="url(#whatFlow1)" filter="url(#whatSoftGlow)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Pulsing glow orbs -->
+  <circle cx="200" cy="100" r="80" fill="url(#whatPulse1)" filter="url(#whatSoftGlow)">
+    <animate attributeName="r" values="80;120;80" dur="6s" repeatCount="indefinite" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="500" cy="140" r="100" fill="url(#whatPulse2)" filter="url(#whatSoftGlow)">
+    <animate attributeName="r" values="100;150;100" dur="7s" repeatCount="indefinite" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="800" cy="80" r="90" fill="url(#whatPulse3)" filter="url(#whatSoftGlow)">
+    <animate attributeName="r" values="90;130;90" dur="6.5s" repeatCount="indefinite" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.25;0.45;0.25" dur="6.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Floating particles -->
+  <g id="particles" opacity="0.5" filter="url(#whatParticleGlow)">
+    <circle cx="100" cy="80" r="1.5" fill="#9d8ff5">
+      <animate attributeName="cy" values="80;50;80" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="5s" repeatCount="indefinite"/>
     </circle>
-
-    <circle cx="500" cy="140" r="100" fill="url(#whatPulse2)" filter="url(#softGlow)">
-      <animate attributeName="r" values="100;150;100" dur="7s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="7s" repeatCount="indefinite"/>
+    <circle cx="250" cy="150" r="1" fill="#c4b5fd">
+      <animate attributeName="cy" values="150;110;150" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="6s" repeatCount="indefinite"/>
     </circle>
-
-    <circle cx="800" cy="80" r="90" fill="url(#whatPulse3)" filter="url(#softGlow)">
-      <animate attributeName="r" values="90;130;90" dur="6.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.25;0.45;0.25" dur="6.5s" repeatCount="indefinite"/>
+    <circle cx="600" cy="200" r="1.5" fill="#7c6af7">
+      <animate attributeName="cy" values="200;160;200" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.25;0.6;0.25" dur="7s" repeatCount="indefinite"/>
     </circle>
-
-    <g filter="url(#particleGlow)" opacity="0.5">
-      <circle cx="100" cy="80" r="1.5" fill="#9d8ff5">
-        <animate attributeName="cy" values="80;50;80" dur="5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.2;0.7;0.2" dur="5s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="250" cy="150" r="1" fill="#c4b5fd">
-        <animate attributeName="cy" values="150;110;150" dur="6s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="6s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="600" cy="200" r="1.5" fill="#7c6af7">
-        <animate attributeName="cy" values="200;160;200" dur="7s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.25;0.6;0.25" dur="7s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="900" cy="120" r="1" fill="#9d8ff5">
-        <animate attributeName="cy" values="120;80;120" dur="5.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.5s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-    <g opacity="0.12">
-      <circle cx="150" cy="50" r="60" fill="none" stroke="#9d8ff5" stroke-width="1">
-        <animate attributeName="r" values="60;80;60" dur="5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.3;0.1;0.3" dur="5s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="800" cy="200" r="50" fill="none" stroke="#c4b5fd" stroke-width="1">
-        <animate attributeName="r" values="50;70;50" dur="6s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.25;0.08;0.25" dur="6s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-    <g>
-      <animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="4s" repeatCount="indefinite"/>
-      <text x="50" y="65" font-family="Fira Code, monospace" font-size="32" font-weight="700" fill="#ededed" letter-spacing="-1">
-        What I Do
-      </text>
-      <line x1="50" y1="80" x2="220" y2="80" stroke="#7c6af7" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
-    </g>
-
-    <g>
-      <text x="50" y="125" font-family="Fira Code, monospace" font-size="18" font-weight="600" fill="#9d8ff5">
-        Build Experiences
-      </text>
-      <text x="50" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" fill="#4a4a5a">
-        Interactive interfaces with fluid motion
-      </text>
-      <text x="50" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#4a4a5a">
-        React • Canvas • TypeScript • Next.js
-      </text>
-    </g>
-
-    <g>
-      <text x="380" y="125" font-family="Fira Code, monospace" font-size="18" font-weight="600" fill="#7c6af7">
-        Engineer Systems
-      </text>
-      <text x="380" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" fill="#4a4a5a">
-        Scalable APIs &amp; data architectures
-      </text>
-      <text x="380" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#4a4a5a">
-        Node.js • Python • PostgreSQL • Docker
-      </text>
-    </g>
-
-    <g>
-      <text x="700" y="125" font-family="Fira Code, monospace" font-size="18" font-weight="600" fill="#c4b5fd">
-        Craft Details
-      </text>
-      <text x="700" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" fill="#4a4a5a">
-        Pixel-tight design with intent
-      </text>
-      <text x="700" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#4a4a5a">
-        Figma • UI/UX • Systems • Animation
-      </text>
-    </g>
+    <circle cx="900" cy="120" r="1" fill="#9d8ff5">
+      <animate attributeName="cy" values="120;80;120" dur="5.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.5s" repeatCount="indefinite"/>
+    </circle>
   </g>
+  
+  <!-- Geometric accent elements -->
+  <g opacity="0.12">
+    <circle cx="150" cy="50" r="60" fill="none" stroke="#9d8ff5" stroke-width="1">
+      <animate attributeName="r" values="60;80;60" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="200" r="50" fill="none" stroke="#c4b5fd" stroke-width="1">
+      <animate attributeName="r" values="50;70;50" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.25;0.08;0.25" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Main content -->
+  <text x="50" y="65" font-family="'Fira Code', monospace" font-size="32" font-weight="700" fill="#ededed" letter-spacing="-1">
+    What I Do
+  </text>
+  
+  <line x1="50" y1="80" x2="220" y2="80" stroke="#7c6af7" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+  
+  <!-- Frontend focus -->
+  <text x="50" y="125" font-family="'Fira Code', monospace" font-size="18" font-weight="600" fill="#9d8ff5">
+    Build Experiences
+  </text>
+  <text x="50" y="150" font-family="monospace" font-size="12" fill="#4a4a5a">
+    Interactive interfaces with fluid animations
+  </text>
+  <text x="50" y="170" font-family="monospace" font-size="11" fill="#272730">
+    React • Canvas • GSAP • TypeScript • Next.js
+  </text>
+  
+  <!-- Backend focus -->
+  <text x="380" y="125" font-family="'Fira Code', monospace" font-size="18" font-weight="600" fill="#7c6af7">
+    Engineer Systems
+  </text>
+  <text x="380" y="150" font-family="monospace" font-size="12" fill="#4a4a5a">
+    Scalable APIs & data architectures
+  </text>
+  <text x="380" y="170" font-family="monospace" font-size="11" fill="#272730">
+    Node.js • Python • PostgreSQL • Docker • GraphQL
+  </text>
+  
+  <!-- Design focus -->
+  <text x="700" y="125" font-family="'Fira Code', monospace" font-size="18" font-weight="600" fill="#c4b5fd">
+    Craft Details
+  </text>
+  <text x="700" y="150" font-family="monospace" font-size="12" fill="#4a4a5a">
+    Pixel-perfect designs with intention
+  </text>
+  <text x="700" y="170" font-family="monospace" font-size="11" fill="#272730">
+    Figma • UI/UX • Design Systems • Animation
+  </text>
+  
+  <!-- Status dots -->
+  <circle cx="65" cy="210" r="5" fill="#9d8ff5" opacity="0.6">
+    <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="395" cy="210" r="5" fill="#7c6af7" opacity="0.6">
+    <animate attributeName="r" values="5;7;5" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="725" cy="210" r="5" fill="#c4b5fd" opacity="0.6">
+    <animate attributeName="r" values="5;7;5" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+
+</g>
+
 </svg>
