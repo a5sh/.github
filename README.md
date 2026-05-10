@@ -1,6 +1,6 @@
 <div align="center">
 
-![Header Visualization](https://raw.githubusercontent.com/a5sh/a5sh/main/assets/header.svg)
+![Header Visualization](https://raw.githubusercontent.com/a5sh/.github/refs/heads/main/assets/header.svg)
 
 </div>
 
@@ -18,19 +18,19 @@
 
 ## 🎯 What I Build
 
-![Tech Stack Visualization](https://raw.githubusercontent.com/a5sh/a5sh/main/assets/techstack.svg)
+![Tech Stack Visualization](https://raw.githubusercontent.com/a5sh/.github/refs/heads/main/assets/techstack.svg)
 
 ---
 
 ## 🚀 Featured Work
 
-![Featured Projects](https://raw.githubusercontent.com/a5sh/a5sh/main/assets/projects.svg)
+![Featured Projects](https://raw.githubusercontent.com/a5sh/.github/refs/heads/main/assets/projects.svg)
 
 ---
 
 ## 📊 Activity Snapshot
 
-![Activity Heatmap](https://raw.githubusercontent.com/a5sh/a5sh/main/assets/activity.svg)
+![Activity Heatmap](https://raw.githubusercontent.com/a5sh/.github/refs/heads/main/assets/activity.svg)
 
 <div align="center">
 
