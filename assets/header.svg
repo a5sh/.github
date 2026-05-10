@@ -1,239 +1,64 @@
-<svg width="1000" height="300" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+<svg width="1000" height="280" viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <!-- Gradients -->
-  <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.3"/>
-    <stop offset="50%" stop-color="#5a4fa5" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#2d2442" stop-opacity="0"/>
-  </linearGradient>
-  
-  <radialGradient id="glowGrad" cx="35%" cy="35%" r="65%">
-    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.4"/>
-    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
-  </radialGradient>
-  
-  <radialGradient id="accentGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.5"/>
-    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
-  </radialGradient>
-  
-  <!-- Filters -->
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-    <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-  
-  <filter id="blur">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
-  </filter>
-  
-  <filter id="softGlow">
-    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-    <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-  
-  <!-- Clip paths -->
-  <clipPath id="mainClip">
-    <rect width="1000" height="300" rx="20"/>
-  </clipPath>
-  
   <style>
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
+    @keyframes charReveal { 0% { clip-path: inset(0 100% 0 0); } 100% { clip-path: inset(0 0 0 0); } }
+    @keyframes glow { 0%, 100% { opacity: 0.08; } 50% { opacity: 0.2; } }
+    @keyframes drift { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(12px); } }
+    @keyframes pulse { 0%, 100% { r: 4; } 50% { r: 5.5; } }
     
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.8; }
-    }
-    
-    @keyframes glow {
-      0%, 100% { filter: drop-shadow(0 0 8px rgba(157, 143, 245, 0.4)); }
-      50% { filter: drop-shadow(0 0 16px rgba(157, 143, 245, 0.7)); }
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    @keyframes slideIn {
-      0% { transform: translateX(-100px); opacity: 0; }
-      100% { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes fadeInScale {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    
-    @keyframes orbitSmall {
-      0% { transform: rotate(0deg) translateX(40px) rotate(0deg); }
-      100% { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
-    }
-    
-    @keyframes orbitMedium {
-      0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
-      100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
-    }
-    
-    /* Hover effects */
-    .header-hover:hover {
-      filter: drop-shadow(0 0 20px rgba(157, 143, 245, 0.8)) drop-shadow(0 10px 30px rgba(124, 106, 247, 0.4));
-    }
-    
-    .name-text:hover {
-      filter: drop-shadow(0 0 12px rgba(157, 143, 245, 0.9));
-    }
-    
-    .orbit-hover:hover circle {
-      filter: drop-shadow(0 0 16px rgba(157, 143, 245, 1));
-    }
-    
-    .right-accent:hover {
-      filter: drop-shadow(0 0 24px rgba(157, 143, 245, 0.9));
-    }
+    .c1 { animation: charReveal 0.4s ease-out 0.05s both; }
+    .c2 { animation: charReveal 0.4s ease-out 0.1s both; }
+    .c3 { animation: charReveal 0.4s ease-out 0.15s both; }
+    .c4 { animation: charReveal 0.4s ease-out 0.2s both; }
+    .c5 { animation: charReveal 0.4s ease-out 0.25s both; }
+    .c6 { animation: charReveal 0.4s ease-out 0.3s both; }
+    .txt { animation: charReveal 0.5s ease-out 0.45s both; }
   </style>
+  <clipPath id="hc"><rect width="1000" height="280" rx="12"/></clipPath>
+  <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1e1b4b"/>
+    <stop offset="100%" stop-color="#0f172a"/>
+  </linearGradient>
 </defs>
 
-<!-- Background -->
-<rect width="1000" height="300" rx="20" fill="#0c0c0f"/>
-<rect width="998" height="298" x="1" y="1" rx="19" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+<rect width="1000" height="280" rx="12" fill="#0f172a"/>
+<rect width="998" height="278" x="1" y="1" rx="11" fill="none" stroke="#334155" stroke-width="1.5"/>
 
-<g clip-path="url(#mainClip)">
-  <!-- Animated background gradient orbs -->
-  <ellipse cx="200" cy="80" rx="200" ry="200" fill="url(#mainGrad)" filter="url(#softGlow)">
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="6s" repeatCount="indefinite"/>
-  </ellipse>
+<g clip-path="url(#hc)">
+  <!-- Base gradient -->
+  <rect width="1000" height="280" fill="url(#hbg)"/>
   
-  <ellipse cx="850" cy="250" rx="180" ry="180" fill="url(#glowGrad)" filter="url(#softGlow)">
-    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="7s" repeatCount="indefinite"/>
-  </ellipse>
+  <!-- Animated floating circles -->
+  <circle cx="850" cy="50" r="120" fill="#a78bfa" style="animation: glow 5s ease-in-out infinite;"/>
+  <circle cx="150" cy="230" r="110" fill="#06b6d4" style="animation: glow 5.5s ease-in-out 0.5s infinite;"/>
+  <circle cx="200" cy="80" r="80" fill="#ec4899" style="animation: drift 7s ease-in-out infinite;"/>
+  <circle cx="800" cy="180" r="100" fill="#fbbf24" style="animation: drift 8s ease-in-out 1s infinite;"/>
   
-  <!-- Central glow orb -->
-  <circle cx="500" cy="150" r="120" fill="url(#accentGlow)" opacity="0.4" filter="url(#softGlow)">
-    <animate attributeName="r" values="120;140;120" dur="4s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Diagonal accent -->
+  <line x1="0" y1="0" x2="100" y2="280" stroke="#06b6d4" stroke-width="2" opacity="0.1" style="animation: glow 6s ease-in-out infinite;"/>
   
-  <!-- Orbiting accent circles -->
-  <g transform="translate(500, 150)" class="orbit-hover">
-    <!-- Small orbit -->
-    <circle cx="0" cy="0" r="3" fill="#9d8ff5" opacity="0.6" filter="url(#glow)">
-      <animateMotion dur="8s" repeatCount="indefinite">
-        <mpath href="#orbitPath1"/>
-      </animateMotion>
-    </circle>
-    
-    <circle cx="0" cy="0" r="2.5" fill="#c4b5fd" opacity="0.5">
-      <animateMotion dur="10s" repeatCount="indefinite">
-        <mpath href="#orbitPath2"/>
-      </animateMotion>
-    </circle>
-    
-    <circle cx="0" cy="0" r="2" fill="#7c6af7" opacity="0.7" filter="url(#glow)">
-      <animateMotion dur="12s" repeatCount="indefinite">
-        <mpath href="#orbitPath3"/>
-      </animateMotion>
-    </circle>
-  </g>
+  <!-- Name -->
+  <text x="50" y="115" font-family="'Space Grotesk', sans-serif" font-size="80" font-weight="900" fill="#f1f5f9" letter-spacing="-2">
+    <tspan class="c1">a</tspan><tspan class="c2">a</tspan><tspan class="c3">y</tspan><tspan class="c4">u</tspan><tspan class="c5">s</tspan><tspan class="c6">h</tspan>
+  </text>
   
-  <!-- Orbital paths (invisible) -->
-  <path id="orbitPath1" d="M 40,0 A 40,40 0 1,1 -40,0 A 40,40 0 1,1 40,0" fill="none"/>
-  <path id="orbitPath2" d="M 65,0 A 65,65 0 1,1 -65,0 A 65,65 0 1,1 65,0" fill="none"/>
-  <path id="orbitPath3" d="M 85,0 A 85,85 0 1,1 -85,0 A 85,85 0 1,1 85,0" fill="none"/>
+  <!-- Accent dot that pulses -->
+  <circle cx="530" cy="95" r="4" fill="#ec4899" style="animation: pulse 2s ease-in-out 0.3s infinite;"/>
   
-  <!-- Particle system -->
-  <g id="particles" opacity="0.4">
-    <circle cx="150" cy="80" r="2" fill="#9d8ff5">
-      <animate attributeName="cy" values="80;60;80" dur="5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="300" cy="200" r="1.5" fill="#c4b5fd">
-      <animate attributeName="cy" values="200;170;200" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="6s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="750" cy="100" r="2.5" fill="#7c6af7">
-      <animate attributeName="cy" values="100;70;100" dur="7s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="7s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="850" cy="180" r="1" fill="#9d8ff5">
-      <animate attributeName="cy" values="180;150;180" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="8s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="200" cy="250" r="2" fill="#c4b5fd">
-      <animate attributeName="cy" values="250;220;250" dur="9s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="9s" repeatCount="indefinite"/>
-    </circle>
-  </g>
+  <!-- Subtitle -->
+  <text x="50" y="160" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#cbd5e1" letter-spacing="0.5" class="txt">
+    Creative developer • Fullstack • Animation obsessed
+  </text>
   
-  <!-- Accent geometric elements -->
-  <g opacity="0.15">
-    <polygon points="500,50 550,80 500,110 450,80" fill="none" stroke="#9d8ff5" stroke-width="1.5">
-      <animateTransform attributeName="transform" type="rotate" from="0 500 80" to="360 500 80" dur="15s" repeatCount="indefinite"/>
-    </polygon>
-    
-    <polygon points="500,180 560,210 500,240 440,210" fill="none" stroke="#7c6af7" stroke-width="1.5">
-      <animateTransform attributeName="transform" type="rotate" from="0 500 210" to="-360 500 210" dur="20s" repeatCount="indefinite"/>
-    </polygon>
-  </g>
+  <!-- Tech -->
+  <text x="50" y="188" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94a3b8" letter-spacing="0.2" class="txt">
+    React • Node • Canvas • Figma • Design Systems
+  </text>
   
-  <!-- Main text content with animations -->
-  <g animation="slideIn" style="animation: slideIn 0.8s ease-out;" class="header-hover">
-    <text x="50" y="120" font-family="'Fira Code', 'Courier New', monospace" font-size="56" font-weight="700" fill="#ededed" letter-spacing="-2" class="name-text">
-      aayush
-      <tspan font-size="32" fill="#9d8ff5" opacity="0.7">.</tspan>
-    </text>
-    
-    <text x="50" y="160" font-family="'Fira Code', monospace" font-size="14" fill="#7c6af7" letter-spacing="1" opacity="0.8">
-      FULLSTACK ARCHITECT
-    </text>
-    
-
-    
-    <text x="50" y="210" font-family="ui-monospace, monospace" font-size="12" fill="#4a4a5a" letter-spacing="0.5">
-      JS • TS • React • Node • Python • MongoDB • UI/UX
-    </text>
-  </g>
-  
-  <!-- Right side accent element -->
-  <g transform="translate(900, 50)" opacity="0.6" class="right-accent">
-    <circle cx="0" cy="0" r="30" fill="none" stroke="#9d8ff5" stroke-width="1.5">
-      <animate attributeName="r" values="30;50;30" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="0" cy="0" r="20" fill="none" stroke="#7c6af7" stroke-width="1">
-      <animate attributeName="r" values="20;40;20" dur="3.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;0.1;0.6" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="0" cy="0" r="10" fill="#c4b5fd" opacity="0.4" filter="url(#glow)">
-      <animate attributeName="r" values="10;15;10" dur="2s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  
-  <!-- Status indicator -->
-  <g transform="translate(750, 250)">
-    <circle cx="0" cy="0" r="8" fill="#0c0c0f" stroke="#7c6af7" stroke-width="2"/>
-    <circle cx="0" cy="0" r="5" fill="#7c6af7" filter="url(#glow)">
-      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-    </circle>
-    <text x="20" y="5" font-family="monospace" font-size="11" fill="#7c6af7" letter-spacing="0.5">
-      ACTIVELY BUILDING
-    </text>
+  <!-- Status -->
+  <g style="animation: charReveal 0.5s ease-out 0.6s both;">
+    <circle cx="930" cy="250" r="5" fill="#84cc16" style="animation: pulse 1.5s ease-in-out infinite;"/>
+    <text x="945" y="256" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#84cc16" letter-spacing="0.2">Actively building</text>
   </g>
 </g>
-
 </svg>
