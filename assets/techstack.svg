@@ -1,154 +1,168 @@
-<svg width="1000" height="280" viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
+<svg width="1000" height="300" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0.08"/>
+  <linearGradient id="ringGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.15"/>
   </linearGradient>
   
-  <filter id="techShadow">
-    <feGaussianBlur stdDeviation="1.5"/>
-    <feOffset dx="0" dy="2"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.2"/>
-    </feComponentTransfer>
+  <linearGradient id="ringGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <linearGradient id="ringGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <filter id="ringGlow">
+    <feGaussianBlur stdDeviation="2"/>
     <feMerge>
-      <feMergeNode in="offsetblur"/>
+      <feMergeNode/>
       <feMergeNode in="SourceGraphic"/>
     </feMerge>
   </filter>
   
-  <clipPath id="techClip">
-    <rect width="1000" height="280" rx="16"/>
+  <clipPath id="ringClip">
+    <rect width="1000" height="300" rx="16"/>
   </clipPath>
   
   <style>
-    @keyframes techGlow {
-      0%, 100% { filter: drop-shadow(0 0 4px rgba(124, 106, 247, 0.3)); }
-      50% { filter: drop-shadow(0 0 10px rgba(157, 143, 245, 0.6)); }
-    }
-    
-    @keyframes badgeHover {
-      0%, 100% { filter: drop-shadow(0 0 0px rgba(157, 143, 245, 0.3)); }
-      50% { filter: drop-shadow(0 0 8px rgba(157, 143, 245, 0.8)); }
-    }
-    
-    .tech-badge:hover {
-      filter: drop-shadow(0 0 12px rgba(157, 143, 245, 0.9)) !important;
-    }
+    @keyframes ringRotate1 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes ringRotate2 { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+    @keyframes ringRotate3 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes skillPulse { 0%, 100% { r: 4; opacity: 0.6; } 50% { r: 6; opacity: 1; } }
+    @keyframes skillGlow { 0%, 100% { filter: drop-shadow(0 0 4px rgba(157, 143, 245, 0.3)); } 50% { filter: drop-shadow(0 0 10px rgba(157, 143, 245, 0.8)); } }
+    @keyframes flowIn { 0% { opacity: 0; transform: scale(0.8); } 50% { opacity: 1; } 100% { opacity: 0; transform: scale(1.3); } }
   </style>
 </defs>
 
 <!-- Background -->
-<rect width="1000" height="280" rx="16" fill="#0c0c0f"/>
-<rect width="998" height="278" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+<rect width="1000" height="300" rx="16" fill="#0c0c0f"/>
+<rect width="998" height="298" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
 
-<g clip-path="url(#techClip)">
+<g clip-path="url(#ringClip)">
+  <!-- Background gradient -->
+  <ellipse cx="250" cy="150" rx="220" ry="180" fill="url(#ringGrad1)" filter="url(#ringGlow)">
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <ellipse cx="750" cy="150" rx="200" ry="160" fill="url(#ringGrad1)" filter="url(#ringGlow)">
+    <animate attributeName="opacity" values="0.15;0.35;0.15" dur="9s" repeatCount="indefinite"/>
+  </ellipse>
+  
   <!-- Title -->
-  <text x="50" y="50" font-family="'Fira Code', monospace" font-size="24" font-weight="700" fill="#ededed">
-    TECH STACK
+  <text x="50" y="50" font-family="'Fira Code', monospace" font-size="32" font-weight="700" fill="#ededed">
+    Tech Arsenal
   </text>
   
-  <line x1="50" y1="62" x2="220" y2="62" stroke="#7c6af7" stroke-width="2" opacity="0.7"/>
+  <line x1="50" y1="65" x2="240" y2="65" stroke="#7c6af7" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
   
-  <!-- Languages & Frontend -->
-  <text x="50" y="105" font-family="monospace" font-size="11" fill="#7c6af7" font-weight="600" letter-spacing="1">
-    LANGUAGES
+  <!-- Left skill cluster -->
+  <g transform="translate(200, 150)">
+    <!-- Ring 1 -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="rgba(157, 143, 245, 0.2)" stroke-width="1.5">
+      <animate attributeName="r" values="80;100;80" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Ring 2 -->
+    <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(124, 106, 247, 0.15)" stroke-width="1">
+      <animate attributeName="r" values="110;130;110" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.08;0.2" dur="7s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Skill nodes - Frontend -->
+    <g transform="translate(0, -90)">
+      <circle cx="0" cy="0" r="6" fill="#9d8ff5" opacity="0.8" filter="url(#skillGlow)">
+        <animate attributeName="r" values="6;8;6" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="25" text-anchor="middle" font-family="monospace" font-size="10" fill="#9d8ff5" font-weight="600">React</text>
+    </g>
+    
+    <g transform="translate(80, -45)">
+      <circle cx="0" cy="0" r="5" fill="#c4b5fd" opacity="0.7" filter="url(#skillGlow)">
+        <animate attributeName="r" values="5;7;5" dur="2.7s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="#c4b5fd" font-weight="600">TS</text>
+    </g>
+    
+    <g transform="translate(80, 45)">
+      <circle cx="0" cy="0" r="5" fill="#7c6af7" opacity="0.75" filter="url(#skillGlow)">
+        <animate attributeName="r" values="5;7;5" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="#7c6af7" font-weight="600">CSS</text>
+    </g>
+    
+    <g transform="translate(0, 90)">
+      <circle cx="0" cy="0" r="5" fill="#9d8ff5" opacity="0.7" filter="url(#skillGlow)">
+        <animate attributeName="r" values="5;7;5" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="#9d8ff5" font-weight="600">Next</text>
+    </g>
+  </g>
+  
+  <!-- Right skill cluster -->
+  <g transform="translate(700, 150)">
+    <!-- Ring 1 -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="rgba(124, 106, 247, 0.2)" stroke-width="1.5">
+      <animate attributeName="r" values="80;100;80" dur="6.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="6.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Ring 2 -->
+    <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(196, 181, 253, 0.15)" stroke-width="1">
+      <animate attributeName="r" values="110;130;110" dur="7.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.08;0.2" dur="7.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Skill nodes - Backend -->
+    <g transform="translate(0, -90)">
+      <circle cx="0" cy="0" r="6" fill="#7c6af7" opacity="0.85" filter="url(#skillGlow)">
+        <animate attributeName="r" values="6;8;6" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="25" text-anchor="middle" font-family="monospace" font-size="10" fill="#7c6af7" font-weight="600">Node</text>
+    </g>
+    
+    <g transform="translate(80, -45)">
+      <circle cx="0" cy="0" r="5" fill="#9d8ff5" opacity="0.75" filter="url(#skillGlow)">
+        <animate attributeName="r" values="5;7;5" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="#9d8ff5" font-weight="600">SQL</text>
+    </g>
+    
+    <g transform="translate(80, 45)">
+      <circle cx="0" cy="0" r="5" fill="#c4b5fd" opacity="0.7" filter="url(#skillGlow)">
+        <animate attributeName="r" values="5;7;5" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="#c4b5fd" font-weight="600">Python</text>
+    </g>
+    
+    <g transform="translate(0, 90)">
+      <circle cx="0" cy="0" r="5" fill="#7c6af7" opacity="0.75" filter="url(#skillGlow)">
+        <animate attributeName="r" values="5;7;5" dur="2.7s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="#7c6af7" font-weight="600">Docker</text>
+    </g>
+  </g>
+  
+  <!-- Connection line -->
+  <line x1="280" y1="150" x2="620" y2="150" stroke="rgba(124, 106, 247, 0.15)" stroke-width="2" opacity="0.4">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Central indicator -->
+  <g transform="translate(450, 150)">
+    <circle cx="0" cy="0" r="8" fill="rgba(124, 106, 247, 0.2)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="4" fill="#7c6af7">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Legend -->
+  <text x="50" y="265" font-family="monospace" font-size="10" fill="#3a3a4a" letter-spacing="0.5">
+    Frontend Expertise / Backend Mastery / Full-Stack Capability
   </text>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite;">
-    <rect x="50" y="115" width="70" height="32" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
-    <text x="58" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#9d8ff5">JavaScript</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.2s;">
-    <rect x="130" y="115" width="70" height="32" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
-    <text x="138" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#9d8ff5">TypeScript</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.4s;">
-    <rect x="210" y="115" width="70" height="32" rx="6" fill="rgba(196, 181, 253, 0.15)" stroke="rgba(196, 181, 253, 0.4)" stroke-width="1"/>
-    <text x="220" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#c4b5fd">Python</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.6s;">
-    <rect x="290" y="115" width="70" height="32" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
-    <text x="300" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#9d8ff5">HTML/CSS</text>
-  </g>
-  
-  <!-- Frontend -->
-  <text x="500" y="105" font-family="monospace" font-size="11" fill="#7c6af7" font-weight="600" letter-spacing="1">
-    FRONTEND
-  </text>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.1s;">
-    <rect x="500" y="115" width="70" height="32" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
-    <text x="510" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#7c6af7">React</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.3s;">
-    <rect x="580" y="115" width="70" height="32" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
-    <text x="588" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#7c6af7">Next.js</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.5s;">
-    <rect x="660" y="115" width="70" height="32" rx="6" fill="rgba(196, 181, 253, 0.15)" stroke="rgba(196, 181, 253, 0.4)" stroke-width="1"/>
-    <text x="668" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#c4b5fd">Tailwind</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.7s;">
-    <rect x="740" y="115" width="70" height="32" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
-    <text x="748" y="137" font-family="monospace" font-size="11" font-weight="600" fill="#9d8ff5">GSAP</text>
-  </g>
-  
-  <!-- Backend -->
-  <text x="50" y="190" font-family="monospace" font-size="11" fill="#7c6af7" font-weight="600" letter-spacing="1">
-    BACKEND
-  </text>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.15s;">
-    <rect x="50" y="200" width="70" height="32" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
-    <text x="58" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#9d8ff5">Node.js</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.35s;">
-    <rect x="130" y="200" width="70" height="32" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
-    <text x="138" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#7c6af7">Express</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.55s;">
-    <rect x="210" y="200" width="70" height="32" rx="6" fill="rgba(196, 181, 253, 0.15)" stroke="rgba(196, 181, 253, 0.4)" stroke-width="1"/>
-    <text x="218" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#c4b5fd">FastAPI</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.75s;">
-    <rect x="290" y="200" width="70" height="32" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
-    <text x="298" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#9d8ff5">GraphQL</text>
-  </g>
-  
-  <!-- Database & Tools -->
-  <text x="500" y="190" font-family="monospace" font-size="11" fill="#7c6af7" font-weight="600" letter-spacing="1">
-    DATA & TOOLS
-  </text>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.2s;">
-    <rect x="500" y="200" width="70" height="32" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
-    <text x="506" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#7c6af7">MongoDB</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.4s;">
-    <rect x="580" y="200" width="70" height="32" rx="6" fill="rgba(196, 181, 253, 0.15)" stroke="rgba(196, 181, 253, 0.4)" stroke-width="1"/>
-    <text x="586" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#c4b5fd">PostgreSQL</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.6s;">
-    <rect x="660" y="200" width="70" height="32" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
-    <text x="670" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#9d8ff5">Docker</text>
-  </g>
-  
-  <g class="tech-badge" style="animation: badgeHover 2.5s ease-in-out infinite; animation-delay: 0.8s;">
-    <rect x="740" y="200" width="70" height="32" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
-    <text x="752" y="222" font-family="monospace" font-size="11" font-weight="600" fill="#7c6af7">Git</text>
-  </g>
 
 </g>
 

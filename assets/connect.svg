@@ -1,105 +1,167 @@
-<svg width="1000" height="180" viewBox="0 0 1000 180" xmlns="http://www.w3.org/2000/svg">
+<svg width="1000" height="220" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.08"/>
+  <linearGradient id="connectFlow" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.1"/>
   </linearGradient>
   
-  <filter id="ctaGlow">
-    <feGaussianBlur stdDeviation="2"/>
-    <feOffset dx="0" dy="3" result="offsetblur"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.2"/>
-    </feComponentTransfer>
+  <radialGradient id="connectNode" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
+  </radialGradient>
+  
+  <filter id="connectGlow">
+    <feGaussianBlur stdDeviation="3"/>
     <feMerge>
-      <feMergeNode in="offsetblur"/>
+      <feMergeNode/>
       <feMergeNode in="SourceGraphic"/>
     </feMerge>
   </filter>
   
-  <clipPath id="ctaClip">
-    <rect width="1000" height="180" rx="16"/>
+  <filter id="lineGlow">
+    <feGaussianBlur stdDeviation="1.5"/>
+  </filter>
+  
+  <clipPath id="connectClip">
+    <rect width="1000" height="220" rx="16"/>
   </clipPath>
   
   <style>
-    @keyframes linkPulse {
-      0%, 100% { filter: drop-shadow(0 0 0px rgba(157, 143, 245, 0.3)); }
-      50% { filter: drop-shadow(0 0 8px rgba(157, 143, 245, 0.8)); }
-    }
-    
-    .cta-link:hover {
-      filter: drop-shadow(0 0 12px rgba(157, 143, 245, 1)) !important;
-    }
-    
-    .cta-link {
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+    @keyframes dataFlow1 { 0% { stroke-dashoffset: 100; } 100% { stroke-dashoffset: 0; } }
+    @keyframes dataFlow2 { 0% { stroke-dashoffset: -100; } 100% { stroke-dashoffset: 0; } }
+    @keyframes nodePulse1 { 0%, 100% { r: 8; opacity: 0.6; } 50% { r: 12; opacity: 1; } }
+    @keyframes nodePulse2 { 0%, 100% { r: 6; opacity: 0.5; } 50% { r: 10; opacity: 0.9; } }
+    @keyframes nodePulse3 { 0%, 100% { r: 7; opacity: 0.55; } 50% { r: 11; opacity: 0.95; } }
+    @keyframes glowIntensity { 0%, 100% { filter: drop-shadow(0 0 4px rgba(157, 143, 245, 0.3)); } 50% { filter: drop-shadow(0 0 12px rgba(157, 143, 245, 0.7)); } }
+    @keyframes textFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-3px); } }
   </style>
 </defs>
 
 <!-- Background -->
-<rect width="1000" height="180" rx="16" fill="#0c0c0f"/>
-<rect width="998" height="178" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+<rect width="1000" height="220" rx="16" fill="#0c0c0f"/>
+<rect width="998" height="218" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
 
-<g clip-path="url(#ctaClip)">
-  <!-- Background glow -->
-  <circle cx="150" cy="90" r="120" fill="#7c6af7" opacity="0.08" filter="url(#ctaGlow)"/>
-  <circle cx="850" cy="90" r="100" fill="#9d8ff5" opacity="0.06" filter="url(#ctaGlow)"/>
+<g clip-path="url(#connectClip)">
+  <!-- Background gradient -->
+  <ellipse cx="200" cy="110" rx="180" ry="140" fill="url(#connectFlow)" filter="url(#connectGlow)">
+    <animate attributeName="opacity" values="0.15;0.35;0.15" dur="8s" repeatCount="indefinite"/>
+  </ellipse>
   
-  <!-- Main text -->
-  <text x="50" y="65" font-family="'Fira Code', monospace" font-size="28" font-weight="700" fill="#ededed">
-    Let's Build Something
-  </text>
+  <ellipse cx="800" cy="110" rx="170" ry="130" fill="url(#connectFlow)" filter="url(#connectGlow)">
+    <animate attributeName="opacity" values="0.15;0.35;0.15" dur="9s" repeatCount="indefinite"/>
+  </ellipse>
   
-  <text x="50" y="95" font-family="'Fira Code', monospace" font-size="28" font-weight="700">
-    <tspan fill="#9d8ff5">Extraordinary</tspan>
-  </text>
+  <!-- Connection network visualization -->
+  <!-- Line 1: Main connection -->
+  <line x1="150" y1="80" x2="350" y2="120" stroke="rgba(157, 143, 245, 0.2)" stroke-width="2" filter="url(#lineGlow)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+  </line>
   
-  <!-- Accent line -->
-  <line x1="50" y1="110" x2="450" y2="110" stroke="#7c6af7" stroke-width="2" opacity="0.5"/>
+  <!-- Line 2: Branch -->
+  <line x1="350" y1="120" x2="500" y2="100" stroke="rgba(124, 106, 247, 0.15)" stroke-width="2" filter="url(#lineGlow)">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="3.5s" repeatCount="indefinite"/>
+  </line>
   
-  <!-- GitHub Link -->
-  <g class="cta-link" style="animation: linkPulse 3s ease-in-out infinite;">
-    <circle cx="600" cy="60" r="28" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="2"/>
-    <text x="590" y="68" font-family="monospace" font-size="14" font-weight="700" fill="#9d8ff5">GH</text>
+  <!-- Line 3: Connection to right -->
+  <line x1="500" y1="100" x2="700" y2="130" stroke="rgba(196, 181, 253, 0.15)" stroke-width="2" filter="url(#lineGlow)">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="3.2s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Line 4: Bridge -->
+  <line x1="700" y1="130" x2="850" y2="90" stroke="rgba(157, 143, 245, 0.18)" stroke-width="2" filter="url(#lineGlow)">
+    <animate attributeName="opacity" values="0.2;0.45;0.2" dur="3.7s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Connection nodes -->
+  <!-- Node 1: Start -->
+  <g transform="translate(150, 80)">
+    <circle cx="0" cy="0" r="8" fill="#9d8ff5" opacity="0.7" filter="url(#lineGlow)">
+      <animate attributeName="r" values="8;11;8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(157, 143, 245, 0.3)" stroke-width="1">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
   </g>
   
-  <text x="645" y="60" font-family="monospace" font-size="12" font-weight="600" fill="#9d8ff5">
+  <!-- Node 2: Middle -->
+  <g transform="translate(350, 120)">
+    <circle cx="0" cy="0" r="7" fill="#7c6af7" opacity="0.75" filter="url(#lineGlow)">
+      <animate attributeName="r" values="7;10;7" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="11" fill="none" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1">
+      <animate attributeName="r" values="11;15;11" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Node 3: Center -->
+  <g transform="translate(500, 100)">
+    <circle cx="0" cy="0" r="9" fill="#9d8ff5" opacity="0.8" filter="url(#lineGlow)">
+      <animate attributeName="r" values="9;12;9" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="13" fill="none" stroke="rgba(157, 143, 245, 0.35)" stroke-width="1.5">
+      <animate attributeName="r" values="13;18;13" dur="2.1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.15;0.6" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Node 4: Right-mid -->
+  <g transform="translate(700, 130)">
+    <circle cx="0" cy="0" r="7" fill="#c4b5fd" opacity="0.7" filter="url(#lineGlow)">
+      <animate attributeName="r" values="7;10;7" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="11" fill="none" stroke="rgba(196, 181, 253, 0.3)" stroke-width="1">
+      <animate attributeName="r" values="11;15;11" dur="2.3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Node 5: End -->
+  <g transform="translate(850, 90)">
+    <circle cx="0" cy="0" r="8" fill="#7c6af7" opacity="0.8" filter="url(#lineGlow)">
+      <animate attributeName="r" values="8;11;8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Main CTA -->
+  <text x="50" y="55" font-family="'Fira Code', monospace" font-size="28" font-weight="700" fill="#ededed" style="animation: textFloat 3s ease-in-out infinite;">
+    Let's Connect
+  </text>
+  
+  <text x="50" y="80" font-family="'Fira Code', monospace" font-size="14" fill="#7c6af7" letter-spacing="1" opacity="0.8">
+    OPEN TO OPPORTUNITIES
+  </text>
+  
+  <!-- Contact methods -->
+  <text x="50" y="130" font-family="monospace" font-size="12" font-weight="600" fill="#9d8ff5">
     github.com/opaayush
   </text>
   
-  <text x="645" y="78" font-family="monospace" font-size="10" fill="#4a4a5a">
-    Code & Projects
-  </text>
-  
-  <!-- Email Link -->
-  <g class="cta-link" style="animation: linkPulse 3s ease-in-out infinite; animation-delay: 0.3s;">
-    <circle cx="600" cy="125" r="28" fill="rgba(196, 181, 253, 0.15)" stroke="rgba(196, 181, 253, 0.4)" stroke-width="2"/>
-    <text x="585" y="133" font-family="monospace" font-size="14" font-weight="700" fill="#c4b5fd">@</text>
-  </g>
-  
-  <text x="645" y="125" font-family="monospace" font-size="12" font-weight="600" fill="#c4b5fd">
+  <text x="50" y="155" font-family="monospace" font-size="12" font-weight="600" fill="#c4b5fd">
     hello@opaayush.dev
   </text>
   
-  <text x="645" y="143" font-family="monospace" font-size="10" fill="#4a4a5a">
-    Get in Touch
-  </text>
-  
-  <!-- Status indicator -->
-  <g>
-    <circle cx="900" cy="55" r="12" fill="rgba(124, 106, 247, 0.2)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="2"/>
-    <circle cx="900" cy="55" r="7" fill="#7c6af7">
+  <!-- Right side status -->
+  <g transform="translate(900, 55)">
+    <circle cx="0" cy="0" r="10" fill="rgba(124, 106, 247, 0.2)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="6" fill="#7c6af7">
       <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
     </circle>
-    <text x="820" y="80" font-family="monospace" font-size="11" fill="#7c6af7" font-weight="600" letter-spacing="0.5">
-      OPEN TO OPPORTUNITIES
-    </text>
   </g>
   
-  <!-- Divider -->
-  <line x1="50" y1="160" x2="950" y2="160" stroke="rgba(124, 106, 247, 0.1)" stroke-width="1"/>
+  <text x="750" y="110" font-family="monospace" font-size="11" fill="#3a3a4a" font-weight="600" letter-spacing="0.5">
+    Actively Building
+  </text>
+  
+  <!-- Network activity indicator -->
+  <text x="50" y="190" font-family="monospace" font-size="9" fill="#272730" letter-spacing="0.5">
+    Available for collaboration • Remote-first • Quick response time
+  </text>
 
 </g>
 
