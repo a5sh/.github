@@ -84,9 +84,21 @@
       100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
     }
     
-    @keyframes wave {
-      0%, 100% { d: path('M0,150 Q250,100 500,150 T1000,150 L1000,300 L0,300 Z'); }
-      50% { d: path('M0,160 Q250,110 500,160 T1000,160 L1000,300 L0,300 Z'); }
+    /* Hover effects */
+    .header-hover:hover {
+      filter: drop-shadow(0 0 20px rgba(157, 143, 245, 0.8)) drop-shadow(0 10px 30px rgba(124, 106, 247, 0.4));
+    }
+    
+    .name-text:hover {
+      filter: drop-shadow(0 0 12px rgba(157, 143, 245, 0.9));
+    }
+    
+    .orbit-hover:hover circle {
+      filter: drop-shadow(0 0 16px rgba(157, 143, 245, 1));
+    }
+    
+    .right-accent:hover {
+      filter: drop-shadow(0 0 24px rgba(157, 143, 245, 0.9));
     }
   </style>
 </defs>
@@ -112,7 +124,7 @@
   </circle>
   
   <!-- Orbiting accent circles -->
-  <g transform="translate(500, 150)">
+  <g transform="translate(500, 150)" class="orbit-hover">
     <!-- Small orbit -->
     <circle cx="0" cy="0" r="3" fill="#9d8ff5" opacity="0.6" filter="url(#glow)">
       <animateMotion dur="8s" repeatCount="indefinite">
@@ -178,8 +190,8 @@
   </g>
   
   <!-- Main text content with animations -->
-  <g animation="slideIn" style="animation: slideIn 0.8s ease-out;">
-    <text x="50" y="120" font-family="'Fira Code', 'Courier New', monospace" font-size="56" font-weight="700" fill="#ededed" letter-spacing="-2">
+  <g animation="slideIn" style="animation: slideIn 0.8s ease-out;" class="header-hover">
+    <text x="50" y="120" font-family="'Fira Code', 'Courier New', monospace" font-size="56" font-weight="700" fill="#ededed" letter-spacing="-2" class="name-text">
       aayush
       <tspan font-size="32" fill="#9d8ff5" opacity="0.7">.</tspan>
     </text>
@@ -188,11 +200,7 @@
       FULLSTACK ARCHITECT
     </text>
     
-    <!-- Animated accent line -->
-    <line x1="50" y1="175" x2="50" y2="175" stroke="#7c6af7" stroke-width="3">
-      <animate attributeName="x2" values="50;250;50" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
-    </line>
+
     
     <text x="50" y="210" font-family="ui-monospace, monospace" font-size="12" fill="#4a4a5a" letter-spacing="0.5">
       JS • TS • React • Node • Python • MongoDB • UI/UX
@@ -200,7 +208,7 @@
   </g>
   
   <!-- Right side accent element -->
-  <g transform="translate(900, 50)" opacity="0.6">
+  <g transform="translate(900, 50)" opacity="0.6" class="right-accent">
     <circle cx="0" cy="0" r="30" fill="none" stroke="#9d8ff5" stroke-width="1.5">
       <animate attributeName="r" values="30;50;30" dur="4s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.8;0.2;0.8" dur="4s" repeatCount="indefinite"/>
