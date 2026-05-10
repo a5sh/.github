@@ -1,0 +1,168 @@
+<svg width="1000" height="400" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <!-- Gradients -->
+  <linearGradient id="techGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <linearGradient id="techGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <linearGradient id="techGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <filter id="techGlow">
+    <feGaussianBlur stdDeviation="2"/>
+    <feOffset dx="0" dy="2" result="offsetblur"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.3"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode in="offsetblur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  
+  <clipPath id="techClip">
+    <rect width="1000" height="400" rx="16"/>
+  </clipPath>
+  
+  <style>
+    @keyframes cardHover {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    
+    @keyframes borderFlow {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    
+    @keyframes iconBounce {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    
+    @keyframes gradientShift {
+      0% { filter: drop-shadow(0 0 8px rgba(124, 106, 247, 0.3)); }
+      50% { filter: drop-shadow(0 0 16px rgba(157, 143, 245, 0.6)); }
+      100% { filter: drop-shadow(0 0 8px rgba(124, 106, 247, 0.3)); }
+    }
+    
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</defs>
+
+<!-- Background -->
+<rect width="1000" height="400" rx="16" fill="#0c0c0f"/>
+<rect width="998" height="398" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+
+<g clip-path="url(#techClip)">
+  <!-- Background glow -->
+  <circle cx="500" cy="200" r="300" fill="#7c6af7" opacity="0.08" filter="url(#techGlow)"/>
+  
+  <!-- Title section -->
+  <text x="50" y="50" font-family="'Fira Code', monospace" font-size="32" font-weight="700" fill="#ededed" letter-spacing="-1">
+    Tech Stack
+  </text>
+  
+  <line x1="50" y1="65" x2="250" y2="65" stroke="#7c6af7" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Frontend Column -->
+  <g transform="translate(50, 100)">
+    <text x="0" y="0" font-family="monospace" font-size="13" fill="#7c6af7" letter-spacing="1" font-weight="600">
+      FRONTEND
+    </text>
+    
+    <!-- Card 1 -->
+    <g transform="translate(0, 25)">
+      <rect width="220" height="70" rx="10" fill="url(#techGrad1)" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1.5"/>
+      <text x="15" y="25" font-family="monospace" font-size="14" font-weight="600" fill="#9d8ff5">React · TypeScript</text>
+      <text x="15" y="45" font-family="monospace" font-size="12" fill="#4a4a5a">Next.js · Tailwind · Framer</text>
+      
+      <circle cx="200" cy="15" r="8" fill="#9d8ff5" opacity="0.6" filter="url(#gradientShift)">
+        <animate attributeName="r" values="6;10;6" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Card 2 -->
+    <g transform="translate(0, 120)">
+      <rect width="220" height="70" rx="10" fill="url(#techGrad2)" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1.5"/>
+      <text x="15" y="25" font-family="monospace" font-size="14" font-weight="600" fill="#c4b5fd">HTML5 · CSS3 · Canvas</text>
+      <text x="15" y="45" font-family="monospace" font-size="12" fill="#4a4a5a">SVG · WebGL · Animations</text>
+      
+      <circle cx="200" cy="15" r="8" fill="#c4b5fd" opacity="0.6" filter="url(#gradientShift)">
+        <animate attributeName="r" values="6;10;6" dur="2.7s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Backend Column -->
+  <g transform="translate(330, 100)">
+    <text x="0" y="0" font-family="monospace" font-size="13" fill="#7c6af7" letter-spacing="1" font-weight="600">
+      BACKEND
+    </text>
+    
+    <!-- Card 3 -->
+    <g transform="translate(0, 25)">
+      <rect width="220" height="70" rx="10" fill="url(#techGrad1)" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1.5"/>
+      <text x="15" y="25" font-family="monospace" font-size="14" font-weight="600" fill="#9d8ff5">Node.js · Express</text>
+      <text x="15" y="45" font-family="monospace" font-size="12" fill="#4a4a5a">REST · GraphQL · Socket.io</text>
+      
+      <circle cx="200" cy="15" r="8" fill="#7c6af7" opacity="0.6" filter="url(#gradientShift)">
+        <animate attributeName="r" values="6;10;6" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Card 4 -->
+    <g transform="translate(0, 120)">
+      <rect width="220" height="70" rx="10" fill="url(#techGrad3)" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1.5"/>
+      <text x="15" y="25" font-family="monospace" font-size="14" font-weight="600" fill="#9d8ff5">Python · FastAPI</text>
+      <text x="15" y="45" font-family="monospace" font-size="12" fill="#4a4a5a">Django · Data Science · ML</text>
+      
+      <circle cx="200" cy="15" r="8" fill="#9d8ff5" opacity="0.6" filter="url(#gradientShift)">
+        <animate attributeName="r" values="6;10;6" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Database & Tools Column -->
+  <g transform="translate(610, 100)">
+    <text x="0" y="0" font-family="monospace" font-size="13" fill="#7c6af7" letter-spacing="1" font-weight="600">
+      DATA & TOOLS
+    </text>
+    
+    <!-- Card 5 -->
+    <g transform="translate(0, 25)">
+      <rect width="220" height="70" rx="10" fill="url(#techGrad2)" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1.5"/>
+      <text x="15" y="25" font-family="monospace" font-size="14" font-weight="600" fill="#c4b5fd">MongoDB · PostgreSQL</text>
+      <text x="15" y="45" font-family="monospace" font-size="12" fill="#4a4a5a">Redis · Firebase · Prisma</text>
+      
+      <circle cx="200" cy="15" r="8" fill="#c4b5fd" opacity="0.6" filter="url(#gradientShift)">
+        <animate attributeName="r" values="6;10;6" dur="2.9s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Card 6 -->
+    <g transform="translate(0, 120)">
+      <rect width="220" height="70" rx="10" fill="url(#techGrad1)" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1.5"/>
+      <text x="15" y="25" font-family="monospace" font-size="14" font-weight="600" fill="#7c6af7">Git · Docker · Vite</text>
+      <text x="15" y="45" font-family="monospace" font-size="12" fill="#4a4a5a">Webpack · CI/CD · Figma</text>
+      
+      <circle cx="200" cy="15" r="8" fill="#7c6af7" opacity="0.6" filter="url(#gradientShift)">
+        <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+</g>
+
+</svg>

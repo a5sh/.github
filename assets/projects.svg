@@ -1,0 +1,207 @@
+<svg width="1000" height="320" viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="projectGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#9d8ff5" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <linearGradient id="projectGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#5a4fa5" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <linearGradient id="projectGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#7c6af7" stop-opacity="0.1"/>
+  </linearGradient>
+  
+  <filter id="projectGlow">
+    <feGaussianBlur stdDeviation="2"/>
+    <feOffset dx="0" dy="4" result="offsetblur"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.2"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode in="offsetblur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  
+  <clipPath id="projectClip">
+    <rect width="1000" height="320" rx="16"/>
+  </clipPath>
+  
+  <style>
+    @keyframes cardTilt {
+      0%, 100% { transform: perspective(1000px) rotateY(0deg); }
+      50% { transform: perspective(1000px) rotateY(3deg); }
+    }
+    
+    @keyframes cardGlow {
+      0%, 100% { filter: drop-shadow(0 10px 20px rgba(157, 143, 245, 0.1)); }
+      50% { filter: drop-shadow(0 15px 30px rgba(157, 143, 245, 0.3)); }
+    }
+    
+    @keyframes shimmer {
+      0% { x: -300; }
+      100% { x: 300; }
+    }
+    
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</defs>
+
+<!-- Background -->
+<rect width="1000" height="320" rx="16" fill="#0c0c0f"/>
+<rect width="998" height="318" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+
+<g clip-path="url(#projectClip)">
+  <!-- Title -->
+  <text x="50" y="50" font-family="'Fira Code', monospace" font-size="32" font-weight="700" fill="#ededed" letter-spacing="-1">
+    Featured Projects
+  </text>
+  
+  <line x1="50" y1="65" x2="280" y2="65" stroke="#7c6af7" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Project Card 1 -->
+  <g transform="translate(50, 100)">
+    <defs>
+      <filter id="shimmer1">
+        <feImage href="data:image/svg+xml,%3Csvg width='300' height='180' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='url(%23shimmerGrad)' width='300' height='180'/%3E%3C/svg%3E" x="0" y="0" width="300" height="180"/>
+      </filter>
+    </defs>
+    
+    <rect width="280" height="160" rx="12" fill="url(#projectGrad1)" stroke="rgba(157, 143, 245, 0.3)" stroke-width="1.5" filter="url(#projectGlow)">
+      <animate attributeName="filter" values="url(#projectGlow)" dur="0.1s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Gradient shimmer effect -->
+    <rect width="280" height="160" rx="12" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Project icon/label -->
+    <circle cx="20" cy="20" r="10" fill="#9d8ff5" opacity="0.8">
+      <animate attributeName="r" values="10;12;10" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Title -->
+    <text x="40" y="28" font-family="'Fira Code', monospace" font-size="16" font-weight="700" fill="#9d8ff5">
+      Web Experience
+    </text>
+    
+    <!-- Description -->
+    <text x="20" y="65" font-family="monospace" font-size="12" fill="#4a4a5a" width="240">
+      High-performance interactive experiences
+    </text>
+    
+    <text x="20" y="85" font-family="monospace" font-size="11" fill="#272730">
+      React • Canvas • GSAP • Performance
+    </text>
+    
+    <!-- Tech badges -->
+    <rect x="20" y="105" width="60" height="20" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
+    <text x="30" y="119" font-family="monospace" font-size="10" fill="#9d8ff5" font-weight="600">React</text>
+    
+    <rect x="90" y="105" width="60" height="20" rx="6" fill="rgba(196, 181, 253, 0.15)" stroke="rgba(196, 181, 253, 0.4)" stroke-width="1"/>
+    <text x="100" y="119" font-family="monospace" font-size="10" fill="#c4b5fd" font-weight="600">Canvas</text>
+    
+    <rect x="160" y="105" width="70" height="20" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
+    <text x="168" y="119" font-family="monospace" font-size="10" fill="#7c6af7" font-weight="600">Animation</text>
+    
+    <!-- CTA indicator -->
+    <circle cx="260" cy="140" r="6" fill="rgba(157, 143, 245, 0.4)" stroke="#9d8ff5" stroke-width="1.5">
+      <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Project Card 2 -->
+  <g transform="translate(360, 100)">
+    <rect width="280" height="160" rx="12" fill="url(#projectGrad2)" stroke="rgba(124, 106, 247, 0.3)" stroke-width="1.5" filter="url(#projectGlow)"/>
+    
+    <rect width="280" height="160" rx="12" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <circle cx="20" cy="20" r="10" fill="#7c6af7" opacity="0.8">
+      <animate attributeName="r" values="10;12;10" dur="2.7s" repeatCount="indefinite"/>
+    </circle>
+    
+    <text x="40" y="28" font-family="'Fira Code', monospace" font-size="16" font-weight="700" fill="#7c6af7">
+      Backend Systems
+    </text>
+    
+    <text x="20" y="65" font-family="monospace" font-size="12" fill="#4a4a5a" width="240">
+      Scalable APIs and data architectures
+    </text>
+    
+    <text x="20" y="85" font-family="monospace" font-size="11" fill="#272730">
+      Node.js • GraphQL • PostgreSQL • Docker
+    </text>
+    
+    <rect x="20" y="105" width="60" height="20" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
+    <text x="28" y="119" font-family="monospace" font-size="10" fill="#7c6af7" font-weight="600">Node.js</text>
+    
+    <rect x="90" y="105" width="70" height="20" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
+    <text x="98" y="119" font-family="monospace" font-size="10" fill="#9d8ff5" font-weight="600">GraphQL</text>
+    
+    <rect x="170" y="105" width="70" height="20" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
+    <text x="177" y="119" font-family="monospace" font-size="10" fill="#7c6af7" font-weight="600">Database</text>
+    
+    <circle cx="260" cy="140" r="6" fill="rgba(124, 106, 247, 0.4)" stroke="#7c6af7" stroke-width="1.5">
+      <animate attributeName="r" values="6;8;6" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Project Card 3 (Partial) -->
+  <g transform="translate(670, 100)">
+    <rect width="280" height="160" rx="12" fill="url(#projectGrad3)" stroke="rgba(196, 181, 253, 0.3)" stroke-width="1.5" filter="url(#projectGlow)"/>
+    
+    <rect width="280" height="160" rx="12" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <circle cx="20" cy="20" r="10" fill="#c4b5fd" opacity="0.8">
+      <animate attributeName="r" values="10;12;10" dur="2.9s" repeatCount="indefinite"/>
+    </circle>
+    
+    <text x="40" y="28" font-family="'Fira Code', monospace" font-size="16" font-weight="700" fill="#c4b5fd">
+      Game Dev
+    </text>
+    
+    <text x="20" y="65" font-family="monospace" font-size="12" fill="#4a4a5a" width="240">
+      3D experiences and interactive worlds
+    </text>
+    
+    <text x="20" y="85" font-family="monospace" font-size="11" fill="#272730">
+      Unity • Unreal • C# • Physics
+    </text>
+    
+    <rect x="20" y="105" width="55" height="20" rx="6" fill="rgba(196, 181, 253, 0.15)" stroke="rgba(196, 181, 253, 0.4)" stroke-width="1"/>
+    <text x="30" y="119" font-family="monospace" font-size="10" fill="#c4b5fd" font-weight="600">Unity</text>
+    
+    <rect x="85" y="105" width="60" height="20" rx="6" fill="rgba(157, 143, 245, 0.15)" stroke="rgba(157, 143, 245, 0.4)" stroke-width="1"/>
+    <text x="92" y="119" font-family="monospace" font-size="10" fill="#9d8ff5" font-weight="600">Unreal</text>
+    
+    <rect x="155" y="105" width="75" height="20" rx="6" fill="rgba(124, 106, 247, 0.15)" stroke="rgba(124, 106, 247, 0.4)" stroke-width="1"/>
+    <text x="162" y="119" font-family="monospace" font-size="10" fill="#7c6af7" font-weight="600">C# · Physics</text>
+    
+    <circle cx="260" cy="140" r="6" fill="rgba(196, 181, 253, 0.4)" stroke="#c4b5fd" stroke-width="1.5">
+      <animate attributeName="r" values="6;8;6" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Bottom accent line -->
+  <line x1="50" y1="285" x2="950" y2="285" stroke="rgba(124, 106, 247, 0.1)" stroke-width="1"/>
+  
+  <!-- View all projects hint -->
+  <text x="50" y="310" font-family="monospace" font-size="11" fill="#3a3a4a" letter-spacing="0.5">
+    → More projects at github.com/opaayush
+  </text>
+
+</g>
+
+</svg>
