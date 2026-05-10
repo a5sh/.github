@@ -92,7 +92,7 @@
   <!-- Row 2 - Tools -->
   <g class="card card8">
     <rect x="50" y="200" width="890" height="110" rx="8" fill="#a78bfa" opacity="0.08" stroke="#a78bfa" stroke-width="1.5"/>
-    <text x="70" y="235" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" fill="#5b21b6">Tools & More</text>
+    <text x="70" y="235" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" fill="#5b21b6">Tools and More</text>
     <text x="70" y="260" font-family="'JetBrains Mono', monospace" font-size="10" fill="#7c3aed" letter-spacing="0.1">
       Figma • Framer • GraphQL • Git • CI/CD • Design Systems • GSAP • Storybook • Python • AWS
     </text>
