@@ -110,7 +110,7 @@
       <text x="50" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" fill="#4a4a5a">
         Interactive interfaces with fluid motion
       </text>
-      <text x="50" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#272730">
+      <text x="50" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#4a4a5a">
         React • Canvas • TypeScript • Next.js
       </text>
     </g>
@@ -122,7 +122,7 @@
       <text x="380" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" fill="#4a4a5a">
         Scalable APIs &amp; data architectures
       </text>
-      <text x="380" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#272730">
+      <text x="380" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#4a4a5a">
         Node.js • Python • PostgreSQL • Docker
       </text>
     </g>
@@ -134,19 +134,9 @@
       <text x="700" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" fill="#4a4a5a">
         Pixel-tight design with intent
       </text>
-      <text x="700" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#272730">
+      <text x="700" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#4a4a5a">
         Figma • UI/UX • Systems • Animation
       </text>
     </g>
-
-    <circle cx="65" cy="210" r="5" fill="#9d8ff5" opacity="0.6">
-      <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="395" cy="210" r="5" fill="#7c6af7" opacity="0.6">
-      <animate attributeName="r" values="5;7;5" dur="2.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="725" cy="210" r="5" fill="#c4b5fd" opacity="0.6">
-      <animate attributeName="r" values="5;7;5" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
   </g>
 </svg>
